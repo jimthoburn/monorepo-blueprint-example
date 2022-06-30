@@ -5,11 +5,11 @@ services:
   env: go
   buildCommand: cd backend; go build -o app .
   startCommand: cd backend; ./app
+  # Build and deploy `app-backend` if any `go` file changes,
+  # but ignore any test files.
   buildFilter:
-    # build and deploy our go-backend whenever any go file changes but
-    # ignore any test files
     paths:
-    # changes to the frontend dir do not match this pattern
+    # Changes to the `frontend` directory do not match this pattern
     - backend/**
     ignoredPaths:
     - backend/**/*_test.go
@@ -20,8 +20,8 @@ services:
   env: static
   buildCommand: cd frontend; yarn; yarn build
   staticPublishPath: ./frontend/build/
+  # Build and deploy `app-frontend` if any `js` file changes.
   buildFilter:
     paths:
-    # build and deploy frontend if any js file under the static dir changes
-    # changes to the backend directory do not match this pattern
+    # Changes to the `backend` directory do not match this pattern
     - frontend/**/*.js
