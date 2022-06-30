@@ -3,7 +3,7 @@ services:
   name: app-backend
   branch: main
   env: go
-  buildCommand: cd backend; go build -o app
+  buildCommand: cd backend; go build -o app .
   startCommand: cd backend; ./app
   buildFilter:
     # build and deploy our go-backend whenever any go file changes but
