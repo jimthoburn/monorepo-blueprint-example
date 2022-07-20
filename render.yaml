@@ -14,6 +14,7 @@ services:
     ignoredPaths:
     - backend/**/*_test.go
     - "**/*.md"
+    - "**/*.txt"
 - type: web
   name: app-frontend
   branch: main
